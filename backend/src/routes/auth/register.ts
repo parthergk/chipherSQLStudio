@@ -8,8 +8,7 @@ registerRoute.post("/", async (req: Request, res: Response) => {
 
   if (!username || !password) {
     res.status(400).json({
-      success: false,
-      message: "Email and password are required",
+      error: "Email and password are required",
     });
     return;
   }
@@ -19,8 +18,7 @@ registerRoute.post("/", async (req: Request, res: Response) => {
 
     if (existUsername) {
       res.status(400).json({
-        success: false,
-        message: "User already exist with this username",
+        error: "User already exist with this username",
       });
       return;
     }
