@@ -19,11 +19,7 @@ const assignmentSchema = new Schema(
             dataType: { type: String, required: true },
           },
         ],
-        rows: [
-          {
-            data: { type: Map, of: mongoose.Schema.Types.Mixed },
-          },
-        ],
+        rows: [{ type: Map, of: mongoose.Schema.Types.Mixed }],
       },
     ],
     expectedOutput: {
@@ -34,4 +30,4 @@ const assignmentSchema = new Schema(
   { timestamps: true },
 );
 
-export const Assignment = model("Assignment", assignmentSchema)
+export const Assignment = model("Assignment", assignmentSchema);
