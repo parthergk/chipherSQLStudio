@@ -1,8 +1,8 @@
 export const assignments = [
   {
     title: "Find High Salary Employees",
-    description: "Easy",
-    question: "List all employees earning more than 50,000",
+    difficulty: "Easy",
+    description: "List all employees earning more than 50,000",
     sampleTables: [
       {
         tableName: "employees",
@@ -30,8 +30,8 @@ export const assignments = [
   },
   {
     title: "Department-wise Employee Count",
-    description: "Medium",
-    question: "Find the number of employees in each department",
+    difficulty: "Medium",
+    description: "Find the number of employees in each department",
     sampleTables: [
       {
         tableName: "employees",
@@ -60,8 +60,8 @@ export const assignments = [
   },
   {
     title: "Total Order Value per Customer",
-    description: "Medium",
-    question: "Find total order value for each customer",
+    difficulty: "Medium",
+    description: "Find total order value for each customer",
     sampleTables: [
       {
         tableName: "customers",
@@ -98,8 +98,8 @@ export const assignments = [
   },
   {
     title: "Highest Paid Employee",
-    description: "Hard",
-    question: "Find the employee(s) with the highest salary",
+    difficulty: "Hard",
+    description: "Find the employee(s) with the highest salary",
     sampleTables: [
       {
         tableName: "employees",
