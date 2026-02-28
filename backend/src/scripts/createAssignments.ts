@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import connectTodb from "../db/connection.js";
+import connectTodb from "../db/mongo.js";
 import { Assignment } from "../db/models/Assignment.js";
 import { assignments } from "../seed/Assignment.js";
 

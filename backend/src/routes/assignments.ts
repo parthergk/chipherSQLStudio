@@ -8,7 +8,7 @@ assignmentRouter.get("/", async (req: Request, res: Response) => {
     const assignments = await Assignment.find();
 
     if (!assignments.length) {
-      return res.status(404).json({ message: "No assignments found" });
+      return res.status(404).json({ error: "No assignments found" });
     }
     
     return res
@@ -16,7 +16,7 @@ assignmentRouter.get("/", async (req: Request, res: Response) => {
       .json({ message: "All assignments fetched", data: assignments });
   } catch (error) {
     console.log("Error:", error);
-    return res.status(500).json({ message: "Error: Assignments not fetched" });
+    return res.status(500).json({ error: "Error: Assignments not fetched" });
   }
 });
 

@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/db/connection.ts","./src/db/models/assignment.ts","./src/db/models/userprogress.ts","./src/routes/assignments.ts","./src/routes/hint.ts","./src/routes/query.ts","./src/scripts/createassignments.ts","./src/seed/assignment.ts"],"version":"5.9.3"}
+{"root":["./src/index.ts","./src/db/mongo.ts","./src/db/pg.ts","./src/db/models/assignment.ts","./src/db/models/userprogress.ts","./src/routes/assignments.ts","./src/routes/hint.ts","./src/routes/query.ts","./src/scripts/createassignments.ts","./src/seed/assignment.ts"],"version":"5.9.3"}

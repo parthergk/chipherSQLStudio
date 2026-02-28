@@ -5,7 +5,7 @@ dotenv.config();
 import assignmentRouter from "./routes/assignments.js";
 import queryRouter from "./routes/query.js";
 import llmHintRouter from "./routes/hint.js";
-import connectTodb from "./db/connection.js";
+import connectTodb from "./db/mongo.js";
 
 const app = express();
 const PORT = 5000;
