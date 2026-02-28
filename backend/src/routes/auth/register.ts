@@ -23,9 +23,12 @@ registerRoute.post("/", async (req: Request, res: Response) => {
       return;
     }
 
-    await User.create({ username, password });
+    const user = await User.create({ username, password });
 
-    res.status(201).json({ message: "user register successful" });
+    res.status(201).json({
+      message: "User registered successfully",
+      userId: user._id,
+    });
   } catch (error) {
     console.log("Error", error);
     res.status(500).json({

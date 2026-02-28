@@ -1,9 +1,10 @@
 import { Router, type Request, type Response } from "express";
 import { Assignment } from "../db/models/Assignment.js";
+import userMiddleware from "../middleware/userMiddleware.js";
 
 const assignmentRouter: Router = Router();
 
-assignmentRouter.get("/", async (req: Request, res: Response) => {
+assignmentRouter.get("/",userMiddleware, async (req: Request, res: Response) => {
   try {
     const assignments = await Assignment.find();
 

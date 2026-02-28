@@ -39,7 +39,7 @@ adminLoginRouter.post("/", async (req, res) => {
       { expiresIn: "7d" },
     );
 
-    req.cookies("authToken", token, {
+    res.cookie("authToken", token, {
       httpOnly: true,
       secure: false,
       sameSite: "lax",

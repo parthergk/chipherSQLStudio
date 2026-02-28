@@ -1,10 +1,11 @@
 import { Router, type Request, type Response } from "express";
 import { Assignment } from "../db/models/Assignment.js";
 import { pg } from "../db/pg.js";
+import userMiddleware from "../middleware/userMiddleware.js";
 
 const queryRouter: Router = Router();
 
-queryRouter.post("/", async (req: Request, res: Response) => {
+queryRouter.post("/",userMiddleware, async (req: Request, res: Response) => {
   const client = await pg.connect();
   try {
     const { assId, query } = req.body;

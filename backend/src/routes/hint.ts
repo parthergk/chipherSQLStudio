@@ -2,12 +2,13 @@ import { Router, type Request, type Response } from "express";
 import { Assignment } from "../db/models/Assignment.js";
 import { GoogleGenAI } from "@google/genai";
 import { buildHintPrompt } from "../prompts/hintPrompt.js";
+import userMiddleware from "../middleware/userMiddleware.js";
 
 const llmHintRouter: Router = Router();
 
 const ai = new GoogleGenAI({});
 
-llmHintRouter.post("/", async(req: Request, res: Response) => {
+llmHintRouter.post("/",userMiddleware, async(req: Request, res: Response) => {
   try {
     const { assigId } = req.body;
 
