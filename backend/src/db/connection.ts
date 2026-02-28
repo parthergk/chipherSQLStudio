@@ -1,4 +1,5 @@
-import mongoose, { Connection } from "mongoose";
+import mongoose from "mongoose";
+import type { Connection } from "mongoose";
 
 let cached: {
   conn: Connection | null;

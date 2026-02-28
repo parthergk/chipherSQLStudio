@@ -21,7 +21,6 @@ const assignmentSchema = new Schema(
         ],
         rows: [
           {
-            rowId: { type: mongoose.Schema.ObjectId, auto: true },
             data: { type: Map, of: mongoose.Schema.Types.Mixed },
           },
         ],

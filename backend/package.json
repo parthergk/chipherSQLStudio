@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -b",
     "start": "node ./dist/index.js",
-    "dev": "npm run build & npm run start"
+    "dev": "npm run build && npm run start",
+    "seed": "npm run build && node ./dist/scripts/createAssignments.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
   "dependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/mongoose": "^5.11.96",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
