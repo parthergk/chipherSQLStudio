@@ -3,9 +3,9 @@ import { User } from "../../db/models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-const adminLoginRouter: Router = Router();
+const loginRoute: Router = Router();
 
-adminLoginRouter.post("/", async (req, res) => {
+loginRoute.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -56,3 +56,5 @@ adminLoginRouter.post("/", async (req, res) => {
     });
   }
 });
+
+export default loginRoute;

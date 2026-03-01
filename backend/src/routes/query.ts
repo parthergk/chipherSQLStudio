@@ -2,13 +2,15 @@ import { Router, type Request, type Response } from "express";
 import { Assignment } from "../db/models/Assignment.js";
 import { pg } from "../db/pg.js";
 import userMiddleware from "../middleware/userMiddleware.js";
+import { UserProgress } from "../db/models/UserProgress.js";
 
-const queryRouter: Router = Router();
+const queryRoute: Router = Router();
 
-queryRouter.post("/",userMiddleware, async (req: Request, res: Response) => {
+queryRoute.post("/", userMiddleware, async (req: Request, res: Response) => {
   const client = await pg.connect();
   try {
     const { assId, query } = req.body;
+    const userId = req.user.id;
 
     const assignment = await Assignment.findById(assId);
 
@@ -49,7 +51,41 @@ queryRouter.post("/",userMiddleware, async (req: Request, res: Response) => {
       return res.status(400).json({ error: "Only SELECT queries allowed" });
     }
     const result = await client.query(query);
-    res.status(200).json({ rows: result.rows });
+
+    const isCompleted = true; //compare result with assignment expected out put
+
+    const existUserProgress = await UserProgress.findOne({
+      userId,
+      assignmentId: assId,
+    });
+
+    let userProgress;
+
+    if (!existUserProgress) {
+      userProgress = await UserProgress.create({
+        userId,
+        assignmentId: assId,
+        sqlQuery: query,
+        lastAttempt: new Date(),
+        isCompleted,
+        attemptCount: 1,
+      });
+    } else {
+      existUserProgress.sqlQuery = query;
+      existUserProgress.lastAttempt = new Date();
+      existUserProgress.isCompleted = isCompleted;
+      existUserProgress.attemptCount += 1;
+
+      userProgress = await existUserProgress.save();
+    }
+
+    res
+      .status(200)
+      .json({
+        rows: result.rows,
+        isCompleted,
+        attemptCount: existUserProgress?.attemptCount,
+      });
   } catch (error) {
     console.log("Error:", error);
     return res.status(500).json({ error: "Error: Query not exicuted" });
@@ -59,4 +95,4 @@ queryRouter.post("/",userMiddleware, async (req: Request, res: Response) => {
   }
 });
 
-export default queryRouter;
+export default queryRoute;

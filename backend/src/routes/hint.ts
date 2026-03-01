@@ -4,11 +4,11 @@ import { GoogleGenAI } from "@google/genai";
 import { buildHintPrompt } from "../prompts/hintPrompt.js";
 import userMiddleware from "../middleware/userMiddleware.js";
 
-const llmHintRouter: Router = Router();
+const llmHintRoute: Router = Router();
 
 const ai = new GoogleGenAI({});
 
-llmHintRouter.post("/",userMiddleware, async(req: Request, res: Response) => {
+llmHintRoute.post("/",userMiddleware, async(req: Request, res: Response) => {
   try {
     const { assigId } = req.body;
 
@@ -32,4 +32,4 @@ llmHintRouter.post("/",userMiddleware, async(req: Request, res: Response) => {
   }
 });
 
-export default llmHintRouter;
+export default llmHintRoute;
