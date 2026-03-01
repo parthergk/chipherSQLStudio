@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/assignment.scss";
 import GetHint from "./GetHint";
+import QuerySubmiter from "./QuerySubmiter";
 
 const Assignment = () => {
   const { id } = useParams();
@@ -97,11 +98,9 @@ const Assignment = () => {
           id && <GetHint id={id} />
         }
       </div>
-
-      <div className="assignment__right">
-        <div className="assignment__editor">SQL Editor here</div>
-        <div className="assignment__result">Result display here</div>
-      </div>
+      {
+        id && <QuerySubmiter id={id} />
+      }
     </div>
   );
 };

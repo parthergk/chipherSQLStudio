@@ -12,6 +12,7 @@ queryRoute.post("/", userMiddleware, async (req: Request, res: Response) => {
   try {
     const { assId, query } = req.body;
     const userId = req.user.id;
+    console.log("query", query);
 
     const assignment = await Assignment.findById(assId);
 
@@ -52,8 +53,9 @@ queryRoute.post("/", userMiddleware, async (req: Request, res: Response) => {
       return res.status(400).json({ error: "Only SELECT queries allowed" });
     }
     const result = await client.query(query);
+    console.log("result of query", result);
 
-    const isCompleted = compareResults(result.rows, assignment.expectedOutput)
+    const isCompleted = compareResults(result.rows, assignment.expectedOutput);
 
     const existUserProgress = await UserProgress.findOne({
       userId,
@@ -80,13 +82,11 @@ queryRoute.post("/", userMiddleware, async (req: Request, res: Response) => {
       userProgress = await existUserProgress.save();
     }
 
-    res
-      .status(200)
-      .json({
-        rows: result.rows,
-        isCompleted,
-        attemptCount: existUserProgress?.attemptCount,
-      });
+    res.status(200).json({
+      rows: result.rows,
+      isCompleted,
+      attemptCount: existUserProgress?.attemptCount,
+    });
   } catch (error) {
     console.log("Error:", error);
     return res.status(500).json({ error: "Error: Query not exicuted" });
