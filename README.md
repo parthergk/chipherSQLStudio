@@ -22,7 +22,7 @@ AI
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/parthergk/chipherSQLStudio
+git clone https://github.com/parthergk/chipherSQLStudio.git
 ```
 
 ### 2. Install Dependencies
