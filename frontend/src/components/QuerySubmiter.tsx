@@ -2,7 +2,7 @@ import Editor from "@monaco-editor/react";
 import { useState } from "react";
 
 export default function QuerySubmiter({ id }: { id: string }) {
-    const [query, setQuery] = useState<string | undefined>("SELECT * FROM table;");
+    const [query, setQuery] = useState<string>("SELECT * FROM employees");
     const [rows, setRows] = useState<any[]>([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -59,9 +59,9 @@ export default function QuerySubmiter({ id }: { id: string }) {
                     <Editor
                         height="100%"
                         defaultLanguage="sql"
-                        defaultValue="SELECT * FROM employees;"
+                        defaultValue={query}
                         theme="vs-dark"
-                        onChange={(value) => setQuery(value)}
+                        onChange={(value) => value && setQuery(value)}
                     />
                 </div>
 
