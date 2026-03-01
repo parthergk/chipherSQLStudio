@@ -10,7 +10,7 @@ const Assignment = () => {
     const fetchAssignment = async () => {
       setError("");
       try {
-        const res = await fetch(`http://localhost:5000/api/assignment/${id}`, {
+        const res = await fetch(`http://localhost:5000/api/assignments/${id}`, {
           method: "GET",
           credentials: "include"
         });

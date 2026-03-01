@@ -21,4 +21,23 @@ assignmentRoute.get("/",userMiddleware, async (req: Request, res: Response) => {
   }
 });
 
+assignmentRoute.get("/:id",userMiddleware, async (req: Request, res: Response) => {
+  const assId = req.params.id;
+  
+  try {
+    const assignment = await Assignment.findById(assId);
+
+    if (!assignment) {
+      return res.status(404).json({ error: "No assignment found" });
+    }
+    
+    return res
+      .status(200)
+      .json({ message: "Assignment fetched", data: assignment });
+  } catch (error) {
+    console.log("Error:", error);
+    return res.status(500).json({ error: "Error: Assignment not fetched" });
+  }
+});
+
 export default assignmentRoute;
