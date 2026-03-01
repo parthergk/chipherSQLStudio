@@ -30,14 +30,15 @@ export default function QuerySubmiter({ id }: { id: string }) {
             });
 
             const data = await res.json();
-            console.log("result",data);
 
             if (!res.ok) {
                 setError(data.error || "Query failed");
+                { setIsCompleted(data.isCompleted && data.isCompleted) }
+                { setAttemptCount(data.attemptCount && data.attemptCount) }
                 return;
             }
 
-            
+
             setRows(data.rows || []);
             setAttemptCount(data.attemptCount);
             setIsCompleted(data.isCompleted);
