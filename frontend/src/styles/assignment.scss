@@ -1,0 +1,105 @@
+.assignment {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 20px;
+  padding: 20px;
+
+  &__left {
+    overflow-y: auto;
+  }
+
+  &__title{
+    text-align: start;
+    margin-top: 0;
+  }
+
+  &__desc {
+    margin-bottom: 16px;
+    color: #555;
+    text-align: start;
+  }
+
+  &__table {
+    margin-bottom: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 6px;
+        font-size: 14px;
+      }
+
+      th {
+        background: #f3f3f3;
+      }
+    }
+  }
+
+  &__expected {
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 6px;
+      }
+
+      th {
+        background: #f3f3f3;
+      }
+    }
+  }
+
+  &__hint {
+    margin-top: 20px;
+    display:  flex;
+    flex-direction: column;
+    align-items: start;
+    button {
+      padding: 8px 14px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  &__hint-text {
+    text-align: start;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+  }
+
+  &__right {
+    border-left: 1px solid #eee;
+    padding-left: 20px;
+  }
+
+  &__editor {
+    height: 300px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+
+  &__result {
+    height: 200px;
+    border: 1px solid #ddd;
+  }
+
+  &__hint-error {
+  margin-top: 8px;
+  color: red;
+  font-size: 14px;
+}
+}
