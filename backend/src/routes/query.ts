@@ -3,6 +3,7 @@ import { Assignment } from "../db/models/Assignment.js";
 import { pg } from "../db/pg.js";
 import userMiddleware from "../middleware/userMiddleware.js";
 import { UserProgress } from "../db/models/UserProgress.js";
+import compareResults from "../utils/compareResults.js";
 
 const queryRoute: Router = Router();
 
@@ -52,7 +53,7 @@ queryRoute.post("/", userMiddleware, async (req: Request, res: Response) => {
     }
     const result = await client.query(query);
 
-    const isCompleted = true; //compare result with assignment expected out put
+    const isCompleted = compareResults(result.rows, assignment.expectedOutput)
 
     const existUserProgress = await UserProgress.findOne({
       userId,
