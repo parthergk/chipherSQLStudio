@@ -37,7 +37,7 @@ export default function Login() {
 
             setTimeout(() => {
                 navigate("/assignments");
-            }, 1000);
+            }, 2000);
 
         } catch (err) {
             console.log("Error",err);

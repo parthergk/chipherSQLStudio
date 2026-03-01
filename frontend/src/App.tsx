@@ -5,6 +5,8 @@ import Protected from './components/protected'
 import { AuthProvider } from './context/AuthProvider'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import Assignments from './components/Assignments'
+import Assignment from './components/Assignment'
 
 function App() {
 
@@ -19,10 +21,10 @@ function App() {
             <Route path='/register' element={<Register/>} />
           </Route>
           <Route element={<Protected />}>
-            <Route path='/assignments' element={<div>Assignments</div>} />
+            <Route path='/assignments' element={<Assignments/>} />
           </Route>
           <Route element={<Protected />}>
-            <Route path='/assignment/:id' element={<div>Assignment</div>} />
+            <Route path='/assignment/:id' element={<Assignment/>} />
           </Route>
         </Routes>
       </BrowserRouter>

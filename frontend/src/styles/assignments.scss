@@ -1,0 +1,63 @@
+.assignments {
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  &__list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__card {
+    padding: 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #fff;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      margin-block: 6px;
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__difficulty {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #f0f0f0;
+  }
+
+  &__btnbox {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btnbox button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #111;
+    }
+  }
+}
