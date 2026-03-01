@@ -11,27 +11,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [auth, setAuth] = useState<boolean | null>(null);
 
     useEffect(() => {
+        async function checkAuth() {
+            try {
+                const response = await fetch("http://localhost:5000/api/me", {
+                    credentials: "include",
+                    method: "GET",
+                });
+
+                const result = await response.json();
+                setAuth(result.isAuth);
+            } catch {
+                setAuth(false);
+            }
+        }
+
         checkAuth();
     }, []);
-
-    async function checkAuth() {
-        try {
-            const response = await fetch("http://localhost:5000/api/me", {
-                credentials: "include",
-                method: "GET",
-            });
-
-            const result = await response.json();
-            setAuth(result.isAuth);
-        } catch (error) {
-            setAuth(false);
-        }
-    }
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>{children}</AuthContext.Provider>
     )
 }
-
 
 export const useAuth = () => {
     const context = useContext(AuthContext);

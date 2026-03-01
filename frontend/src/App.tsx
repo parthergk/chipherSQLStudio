@@ -3,6 +3,8 @@ import './App.css'
 import Public from './components/public'
 import Protected from './components/protected'
 import { AuthProvider } from './context/AuthProvider'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
 
 function App() {
 
@@ -11,10 +13,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Public />}>
-            <Route path='/' element={<div>Login</div>} />
+            <Route path='/' element={<Login/>} />
           </Route>
           <Route element={<Public />}>
-            <Route path='/register' element={<div>Register</div>} />
+            <Route path='/register' element={<Register/>} />
           </Route>
           <Route element={<Protected />}>
             <Route path='/assignments' element={<div>Assignments</div>} />
