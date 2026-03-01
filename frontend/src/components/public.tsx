@@ -1,10 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../context/AuthProvider';
 
 const Public = () => {
-    const isAuth = true;
+    const isAuth = useAuth();
 
     return (
-        isAuth ? <Navigate to="/assignments" /> : <Outlet />
+        isAuth.auth ? <Navigate to="/assignments" /> : <Outlet />
     )
 }
 

@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../context/AuthProvider';
 
 const Protected = () => {
-    const isAuth = true;
-
+    const isAuth = useAuth();
   return (
-    isAuth ? <Outlet/> : <Navigate to="/"/>
+    isAuth.auth ? <Outlet/> : <Navigate to="/"/>
   )
 }
 
