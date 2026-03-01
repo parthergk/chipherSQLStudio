@@ -1,6 +1,6 @@
 .assignments {
   padding: 1rem;
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
 
   h2 {
@@ -62,11 +62,24 @@
   }
 
   &__error {
-  background: #ffe6e6;
-  color: #d93025;
-  padding: 8px;
-  border-radius: 4px;
-  font-size: 14px;
-  text-align: center;
+    background: #ffe6e6;
+    color: #d93025;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+  }
 }
+
+@media (max-width: 640px) {
+  .assignments__card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .assignments__btnbox {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
