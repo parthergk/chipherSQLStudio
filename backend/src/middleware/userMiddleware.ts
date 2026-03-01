@@ -10,15 +10,12 @@ const userMiddleware = (req: Request, res: Response, next: NextFunction) => {
       return;
     }
 
-    const verify = jwt.verify(token, process.env.JWT_SECRET!) as {
-      id: string;
-      username: string;
-    };
+    const verify = jwt.verify(token, process.env.JWT_SECRET!) as {_id: string;};
     if (!verify) {
       res.status(401).json({ error: "invalid token" });
       return;
     }
-    (req as any).id = verify.id;
+    req.user.id = verify._id;
     next();
   } catch (error) {
     res.status(401).json({ error: "Invalid or expired token" });
