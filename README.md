@@ -24,8 +24,12 @@ AI
 ```bash
 git clone https://github.com/parthergk/chipherSQLStudio.git
 ```
+### 2. Go inside project
+```bash
+cd cipherSQLStudio
+```
 
-### 2. Install Dependencies
+### 3. Install Dependencies
 
 #### Backend
 ```bash
@@ -39,7 +43,7 @@ cd frontend
 npm install
 ```
 
-### 3. Environment Variables
+### 4. Environment Variables
 
 Create a `.env` file inside the **backend** folder.
 
@@ -53,15 +57,20 @@ cp .env.example .env
 
 Then update the values according to your local setup.
 
-### 4. Run the Project
+### 5. Run the Project
 
-#### Start Backend Server
+#### 1. Run script to create assignments
 ```bash
 cd backend
+npm run seed
+```
+
+#### 2. Start Backend Server
+```bash
 npm run dev
 ```
 
-#### Start Frontend Server
+#### 3. Start Frontend Server
 ```bash
 cd frontend
 npm run dev
