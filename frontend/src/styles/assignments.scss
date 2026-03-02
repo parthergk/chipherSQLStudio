@@ -1,6 +1,6 @@
 .assignments {
   padding: 1rem;
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
 
   h2 {
@@ -19,12 +19,12 @@
     background: #fff;
     text-align: start;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 
     h3 {
       margin-block: 6px;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     p {
@@ -39,11 +39,14 @@
     padding: 3px 8px;
     border-radius: 4px;
     background: #f0f0f0;
+    width: fit-content;
   }
 
   &__btnbox {
+    height: 100%;
     display: flex;
-    align-items: center;
+    align-items: end;
+    justify-content: end;
   }
 
   &__btnbox button {
@@ -54,7 +57,6 @@
     color: #fff;
     font-size: 13px;
     cursor: pointer;
-    transition: background 0.2s ease;
 
     &:hover {
       background: #111;
@@ -71,15 +73,34 @@
   }
 }
 
-@media (max-width: 640px) {
-  .assignments__card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+@media (min-width: 641px) {
+  .assignments {
+    max-width: 700px;
 
-  .assignments__btnbox {
-    width: 100%;
-    justify-content: flex-end;
+    &__card {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .assignments {
+    max-width: 900px;
+
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+  .assignments {
+    max-width: 1100px;
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }

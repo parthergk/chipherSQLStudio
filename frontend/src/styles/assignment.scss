@@ -1,12 +1,16 @@
 .assignment {
-  display: grid;
-  grid-template-columns: 40% 60%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   gap: 20px;
-  padding: 20px;
 
   &__left {
     overflow-y: auto;
+    width: 100%;
   }
+   &__right {
+    width: 100%;
+   }
 
   &__title {
     text-align: start;
@@ -27,7 +31,6 @@
       border-collapse: collapse;
       margin-top: 6px;
       overflow-x: auto;
-      display: block;
 
       th,
       td {
@@ -49,7 +52,6 @@
       width: 100%;
       border-collapse: collapse;
       overflow-x: auto;
-      display: block;
 
       th,
       td {
@@ -86,10 +88,6 @@
     color: #444;
   }
 
-  &__right {
-    border-left: 1px solid #eee;
-    padding-left: 20px;
-  }
 
   &__editor {
     height: 250px;
@@ -98,9 +96,7 @@
   }
 
   &__result {
-    padding: 10px;
-    margin-top: 20px;
-    text-align: start;
+    min-height: 200px;
     border: 1px solid #ddd;
   }
 
@@ -112,7 +108,7 @@
 
   &__run-btn-container {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   &__run-btn {
@@ -122,6 +118,12 @@
     color: white;
     border-radius: 4px;
     cursor: pointer;
+  }
+
+  &__result {
+    padding: 10px;
+    margin-top: 20px;
+    text-align: start;
   }
 
   &__result-error {
@@ -140,23 +142,20 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 641px) {
   .assignment {
-    grid-template-columns: 1fr;
-  }
-
-  .assignment__right {
-    border-left: none;
-    padding-left: 0;
+    padding: 10px;
   }
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1024px) {
   .assignment {
-    padding: 16px;
+    padding: 15px;
+    flex-direction: row;
   }
 
-  .assignment__editor {
-    height: 220px;
+  .assignment__right {
+    border-left: 1px solid #eee;
+    padding-left: 20px;
   }
 }
