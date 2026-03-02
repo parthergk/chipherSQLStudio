@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken";
 const loginRoute: Router = Router();
 
 loginRoute.post("/", async (req, res) => {
-  console.log("login");
   
   try {
     const { username, password } = req.body;
