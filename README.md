@@ -1,6 +1,10 @@
 # CipherSQLStudio
 A browser-based SQL practice platform where students can write and execute SQL queries on predefined assignments with intelligent hints.
 
+## Demo
+
+![Demo](docs/demo.gif)
+
 ## Tack Stack
 Frontend
 - React.js
@@ -86,8 +90,5 @@ After running both servers, the application should be available locally.
 - Track user progress
 
 ## Data Flow Diagram
-
-<p align="center">
-  <img src="docs/data-flow-diagram.png" width="45%" />
-  <img src="docs/hand-draw-digram.jpg" width="45%" />
-</p>
+![Data Flow](docs/data-flow-diagram.png)
+![Data Flow](docs/hand-draw-digram.jpg)
