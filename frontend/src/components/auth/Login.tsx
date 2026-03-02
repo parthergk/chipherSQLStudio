@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/auth.scss";
+import { useAuth } from "../../context/AuthProvider";
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
+    const {setAuth} = useAuth()
+    
 
     const navigate = useNavigate();
 
@@ -34,7 +37,7 @@ export default function Login() {
             }
 
             setMessage("Login successful!");
-
+            setAuth(true)
             setTimeout(() => {
                 navigate("/assignments");
             }, 2000);
