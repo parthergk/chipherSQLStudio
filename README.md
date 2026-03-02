@@ -86,3 +86,8 @@ After running both servers, the application should be available locally.
 - Track user progress
 
 ## Data Flow Diagram
+
+<p align="center">
+  <img src="docs/data-flow-diagram.png" width="45%" />
+  <img src="docs/hand-draw-digram.jpg" width="45%" />
+</p>
